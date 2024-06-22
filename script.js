@@ -4,7 +4,35 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 // Collect employee data
 const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
+  /* We need to get user input. We can do that by using a prompt that asks for each part of the data.
+    So how do we put that data into an array of objects? */
+
+    const employee = {
+        firstName: '',
+        lastName: '',
+        salary: '',
+    };
+
+    console.log('Ok');
+    employee.firstName = prompt("Enter First Name:");
+    console.log(employee.firstName);
+    employee.lastName = prompt("Enter Last Name:");
+    console.log(employee.lastName);
+    employee.salary = prompt("Enter Salary:");
+    console.log(employee.salary);
+
 }
+
+let addEmployee = true;
+
+while (/* They decide to add another employee through the prompt. */ addEmployee) {
+    collectEmployees();
+    addEmployee = confirm("Do you want to add another employee?");
+}
+
+console.log("Good Job!");
+
+// Loop should end when they decide to stop adding employees.
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
@@ -21,6 +49,8 @@ const getRandomEmployee = function(employeesArray) {
   STARTER CODE
   Do not modify any of the code below this line:
 */
+
+/*
 
 // Display employee data in an HTML table
 const displayEmployees = function(employeesArray) {
@@ -81,3 +111,5 @@ const trackEmployeeData = function() {
 
 // Add event listener to 'Add Employees' button
 addEmployeesBtn.addEventListener('click', trackEmployeeData);
+
+*/
