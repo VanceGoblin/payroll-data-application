@@ -13,24 +13,28 @@ const collectEmployees = function() {
         salary: '',
     };
 
-    console.log('Ok');
     employee.firstName = prompt("Enter First Name:");
     console.log(employee.firstName);
     employee.lastName = prompt("Enter Last Name:");
     console.log(employee.lastName);
     employee.salary = prompt("Enter Salary:");
-    console.log(employee.salary);
-
+    if (isNaN(parseInt(employee.salary))) {
+        employee.salary = 0;
+        console.log(employee.salary);
+    } else {
+        console.log(parseInt(employee.salary));
+        }
+    return;
 }
 
 let addEmployee = true;
 
-while (/* They decide to add another employee through the prompt. */ addEmployee) {
+while (addEmployee) {
     collectEmployees();
     addEmployee = confirm("Do you want to add another employee?");
 }
 
-console.log("Good Job!");
+console.log("Here Are Your Employees:");
 
 // Loop should end when they decide to stop adding employees.
 
