@@ -2,39 +2,42 @@
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 // Collect employee data
+
+const employeesArray = [];
+
 const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
-  /* We need to get user input. We can do that by using a prompt that asks for each part of the data.
-    So how do we put that data into an array of objects? */
 
-    const employeesArray = {
+    const employee = {
         firstName: '',
         lastName: '',
         salary: '',
     };
 
-    employeesArray.firstName = prompt("Enter First Name:");
-    console.log(employeesArray.firstName);
-    employeesArray.lastName = prompt("Enter Last Name:");
-    console.log(employeesArray.lastName);
-    employeesArray.salary = prompt("Enter Salary:");
-    if (isNaN(parseInt(employeesArray.salary))) {
-      employeesArray.salary = 0;
-        console.log(employeesArray.salary);
+    employee.firstName = prompt("Enter First Name:");
+    console.log(employee.firstName);
+    employee.lastName = prompt("Enter Last Name:");
+    console.log(employee.lastName);
+    employee.salary = prompt("Enter Salary:");
+    if (isNaN(parseInt(employee.salary))) {
+      employee.salary = 0;
+        console.log(employee.salary);
     } else {
-        console.log(parseInt(employeesArray.salary));
-        }
-  return;
+        console.log(parseInt(employee.salary));
+    }
+
+    employeesArray.push(employee);
+
+    let addEmployee = null;
+    addEmployee = confirm("Do you want to add another employee?");
+    if (addEmployee === true) {
+      collectEmployees();
+    } else {
+      console.log("Done!");
+    }
+
+  return employeesArray;
 }
-
-let addEmployee = true;
-
-while (addEmployee) {
-  collectEmployees();
-  addEmployee = confirm("Do you want to add another employee?");
-}
-
-console.log("Here Are Your Employees:");
 
 // Loop should end when they decide to stop adding employees.
 
@@ -53,8 +56,6 @@ const getRandomEmployee = function(employeesArray) {
   STARTER CODE
   Do not modify any of the code below this line:
 */
-
-
 
 // Display employee data in an HTML table
 const displayEmployees = function(employeesArray) {
@@ -115,4 +116,3 @@ const trackEmployeeData = function() {
 
 // Add event listener to 'Add Employees' button
 addEmployeesBtn.addEventListener('click', trackEmployeeData);
-
