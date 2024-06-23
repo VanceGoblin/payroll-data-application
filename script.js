@@ -7,31 +7,31 @@ const collectEmployees = function() {
   /* We need to get user input. We can do that by using a prompt that asks for each part of the data.
     So how do we put that data into an array of objects? */
 
-    const employee = {
+    const employeesArray = {
         firstName: '',
         lastName: '',
         salary: '',
     };
 
-    employee.firstName = prompt("Enter First Name:");
-    console.log(employee.firstName);
-    employee.lastName = prompt("Enter Last Name:");
-    console.log(employee.lastName);
-    employee.salary = prompt("Enter Salary:");
-    if (isNaN(parseInt(employee.salary))) {
-        employee.salary = 0;
-        console.log(employee.salary);
+    employeesArray.firstName = prompt("Enter First Name:");
+    console.log(employeesArray.firstName);
+    employeesArray.lastName = prompt("Enter Last Name:");
+    console.log(employeesArray.lastName);
+    employeesArray.salary = prompt("Enter Salary:");
+    if (isNaN(parseInt(employeesArray.salary))) {
+      employeesArray.salary = 0;
+        console.log(employeesArray.salary);
     } else {
-        console.log(parseInt(employee.salary));
+        console.log(parseInt(employeesArray.salary));
         }
-    return;
+  return;
 }
 
 let addEmployee = true;
 
 while (addEmployee) {
-    collectEmployees();
-    addEmployee = confirm("Do you want to add another employee?");
+  collectEmployees();
+  addEmployee = confirm("Do you want to add another employee?");
 }
 
 console.log("Here Are Your Employees:");
@@ -54,7 +54,7 @@ const getRandomEmployee = function(employeesArray) {
   Do not modify any of the code below this line:
 */
 
-/*
+
 
 // Display employee data in an HTML table
 const displayEmployees = function(employeesArray) {
@@ -116,4 +116,3 @@ const trackEmployeeData = function() {
 // Add event listener to 'Add Employees' button
 addEmployeesBtn.addEventListener('click', trackEmployeeData);
 
-*/
