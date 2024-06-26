@@ -23,10 +23,7 @@ const collectEmployees = function() {
       employee.salary = 0;
         console.log(employee.salary);
     } else {
-        console.log(parseInt(employee.salary).toLocaleString("en-US", {
-          style: "currency",
-          currency: "USD"
-        }));
+        console.log(parseFloat(employee.salary).toFixed(2));
     }
 
     employeesArray.push(employee);
