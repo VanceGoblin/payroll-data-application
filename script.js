@@ -47,22 +47,17 @@ const displayAverageSalary = function(employeesArray) {
 
     let totalSalary = 0;
     for (let i = 0; i < employeesArray.length; i++) {
-      totalSalary += parseInt(employeesArray[i].salary);
+      totalSalary += parseFloat(employeesArray[i].salary);
     }
 
-    let averageSalary = totalSalary / employeesArray.length;
-    console.log("Average Salary: " + averageSalary.toLocaleString("en-US",{
-      style:"currency",
-      currency:"USD"
-    }));
-  
-    let averageSalaryDisplay = document.querySelector("#average-salary");
-    averageSalaryDisplay = averageSalary.toLocaleString("en-US",{
-      style:"currency",
-      currency:"USD"
-    });
-  
-      return averageSalary;
+    const numberOfEmployees = employeesArray.length;
+
+    let averageSalary = totalSalary / numberOfEmployees;
+    let averageSalaryWithTwoDecimals = averageSalary.toFixed(2);
+
+    console.log(`The average employee salary between our ${numberOfEmployees} employee(s) is $${averageSalaryWithTwoDecimals}`)
+
+      return averageSalaryWithTwoDecimals;
 }
 
 // Select a random employee
