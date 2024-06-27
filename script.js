@@ -4,37 +4,38 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 // Collect employee data
 
 const employeesArray = [];
-
 const collectEmployees = function() {
+  const employeesArray = [];
+
   // TODO: Get user input to create and return an array of employee objects
 
-    const employee = {
-        firstName: '',
-        lastName: '',
-        salary: '',
-    };
+  const employee = {
+    firstName: '',
+    lastName: '',
+    salary: '',
+  };
 
-    employee.firstName = prompt("Enter First Name:");
-    console.log(employee.firstName);
-    employee.lastName = prompt("Enter Last Name:");
-    console.log(employee.lastName);
-    employee.salary = prompt("Enter Salary:");
-    if (isNaN(parseInt(employee.salary))) {
-      employee.salary = 0;
-        console.log(employee.salary);
-    } else {
-        console.log(parseFloat(employee.salary).toFixed(2));
-    }
+  employee.firstName = prompt("Enter First Name:");
+  console.log(employee.firstName);
+  employee.lastName = prompt("Enter Last Name:");
+  console.log(employee.lastName);
+  employee.salary = prompt("Enter Salary:");
+  if (isNaN(parseInt(employee.salary))) {
+    employee.salary = 0;
+    console.log(employee.salary);
+  } else {
+    console.log(parseFloat(employee.salary).toFixed(2));
+  }
 
-    employeesArray.push(employee);
+  employeesArray.push(employee);
 
-    let addEmployee = null;
-    addEmployee = confirm("Do you want to add another employee?");
-    if (addEmployee === true) {
-      collectEmployees();
-    } else {
-      console.log("Done!");
-    }
+  let addEmployee = null;
+  addEmployee = confirm("Do you want to add another employee?");
+  if (addEmployee === true) {
+    employeesArray.push(...collectEmployees());
+  } else {
+    console.log("Done!");
+  }
 
   return employeesArray;
 }
